@@ -1,0 +1,7 @@
+[project]
+name = "ethers"
+version = "0.1.0"
+description = "Generates output in `/etc/ethers` format to associate MAC addresses with an interface from a particular device."
+readme = "README.md"
+requires-python = ">=3.12"
+
