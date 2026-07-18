@@ -22,4 +22,15 @@ poetry install
 # uv
 uv sync
 ```
+4. Run project.
+```
+# pip
+set -a; source .env; set +a; python main.py
+
+# poetry
+source .env && poetry run python main.py
+
+# uv
+uv run --env-file .env main.py
+```
 
