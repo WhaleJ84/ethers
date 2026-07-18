@@ -1,6 +1,9 @@
 # Should never be committed
 .env
 
+# Python stuff
+**/__pycache__/**
+
 # pip specific
 build/
 ethers.egg-info/
