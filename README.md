@@ -9,4 +9,17 @@ NetBox data is used as the Source of Truth.
 cp .env-example .env
 ```
 2. Populate empty variables in `.env` with to match your NetBox instance.
+3. Install project dependencies.
+```
+# pip
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install .
+
+# poetry
+poetry install
+
+# uv
+uv sync
+```
 
