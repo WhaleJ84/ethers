@@ -25,12 +25,12 @@ uv sync
 4. Run project.
 ```
 # pip
-set -a; source .env; set +a; python main.py
+set -a; source .env; set +a; python -m src.main
 
 # poetry
-source .env && poetry run python main.py
+source .env && poetry run python src.main
 
 # uv
-uv run --env-file .env main.py
+uv run --env-file .env -m src.main
 ```
 
