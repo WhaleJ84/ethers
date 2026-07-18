@@ -12,6 +12,16 @@ def get_ethers_list(
     url: str = getenv("NETBOX_URL", ""),
     token: str = getenv("NETBOX_API_TOKEN", ""),
 ) -> list[str]:
+    """Generates output for ``/etc/ethers`` file.
+
+    Args:
+        url (str): The base URL to the instance of NetBox you wish to connect to.
+        token (str): Your NetBox token.
+
+    Returns:
+        list[str]: List of valid '<MAC>\t<DEVICE>-<INTERFACE>' strings.
+
+    """
     ETHERS: list = []
 
     nb: api = api(
