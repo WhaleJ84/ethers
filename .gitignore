@@ -1,6 +1,10 @@
 # Should never be committed
 .env
 
+# pip specific
+build/
+ethers.egg-info/
+
 # poetry/uv specific
 .python-version
 
