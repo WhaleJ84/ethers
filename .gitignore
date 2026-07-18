@@ -1,3 +1,9 @@
+# Should never be committed
 .env
+
+# poetry/uv specific
 .python-version
+
+# uv specific
 uv.lock
+
