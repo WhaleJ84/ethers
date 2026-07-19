@@ -1,4 +1,5 @@
 import logging
+from json import dumps
 from os import getenv
 from re import match
 
@@ -6,6 +7,28 @@ from pynetbox import api
 from pynetbox.core.endpoint import RecordSet
 
 logging.basicConfig(level=logging.INFO)
+
+
+class NetboxError(Exception):
+    """Base exception for Netbox errors.
+
+    Args:
+        message (str): Description of the error.
+        error (str): Content from the error itself.
+        status_code (int): HTTP status code.
+    """
+    def __init__(self, message: str, error: str, status_code: int, *args) -> None:
+        self.message = message
+        self.error = error
+        self.status_code = status_code
+        super().__init__(*args)
+
+    def __str__(self):
+        return dumps({
+            "message": self.message,
+            "error": self.error,
+            "status_code": self.status_code,
+        })
 
 
 def get_ethers_list(
