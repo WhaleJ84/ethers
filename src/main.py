@@ -93,7 +93,21 @@ def get_ethers_list(
 
     return ETHERS
 
+def create_ethers_file(
+    content: list[str],
+    file_name: str = 'ethers',
+) -> None:
+    """Creates ``file_name`` with the output of ``content``.
+
+    Args:
+        content (list[str]): An array of lines to be written to ``file_name``.
+        file_name (str): Name of the file created with the output of ``content``.
+    """
+    with open(file_name, 'w') as file:
+        file.write('\n'.join(content))
+
 
 if __name__ == "__main__":
-    ethers = get_ethers_list()
-    print('\n'.join(ethers))
+    ethers_content = get_ethers_list()
+    create_ethers_file(ethers_content)
+
