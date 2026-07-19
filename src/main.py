@@ -7,6 +7,7 @@ from re import match
 from pynetbox import api
 from pynetbox.core.endpoint import RecordSet
 from pynetbox.core.query import RequestError
+from requests.exceptions import ConnectionError
 
 logging.basicConfig(level=logging.INFO)
 
@@ -69,6 +70,16 @@ def get_ethers_list(
                     logging.warning('Unable to add %s.', device_interface)
                     continue
                 ETHERS.append(f"{mac}\t{device_interface}")
+    except ConnectionError as e:
+        endpoint: str = e.request.url
+        error: str = str(e)
+        status_code: int = 404
+        error_msg: dict = {
+            "message": f"Failed to query '{endpoint}'",
+            "error": error,
+            "status_code": status_code,
+        }
+        raise NetboxError(**error_msg)
     except RequestError as e:
         endpoint: str = e.base
         error: str = str(literal_eval(e.error)['detail'])
