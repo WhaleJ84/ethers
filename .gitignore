@@ -1,6 +1,9 @@
 # Should never be committed
 .env
 
+# Project output files
+ethers
+
 # Python stuff
 **/__pycache__/**
 
