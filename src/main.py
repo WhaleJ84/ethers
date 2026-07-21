@@ -95,13 +95,13 @@ def get_ethers_list(
 
 def create_ethers_file(
     content: list[str],
-    file_name: str = 'ethers',
+    file_name: str = getenv("ETHERS_FILENAME", "ethers"),
 ) -> None:
     """Creates ``file_name`` with the output of ``content``.
 
     Args:
         content (list[str]): An array of lines to be written to ``file_name``.
-        file_name (str): Name of the file created with the output of ``content``.
+        file_name (str): Name of the file created with the output of ``content``. Defaults to ``ethers``.
     """
     with open(file_name, 'w') as file:
         file.write('\n'.join(content))
