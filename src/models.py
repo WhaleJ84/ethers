@@ -1,7 +1,7 @@
 from json import dumps
 
 
-class NetboxError(Exception):
+class NetBoxError(Exception):
     """Base exception for Netbox errors.
 
     Args:

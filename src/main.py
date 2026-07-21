@@ -3,7 +3,7 @@ from ast import literal_eval
 from os import getenv
 from re import match
 
-from src.models import NetboxError
+from src.models import NetBoxError
 
 from pynetbox import api
 from pynetbox.core.endpoint import RecordSet
@@ -58,7 +58,7 @@ def get_ethers_list(
             "error": error,
             "status_code": status_code,
         }
-        raise NetboxError(**error_msg)
+        raise NetBoxError(**error_msg)
     except RequestError as e:
         endpoint: str = e.base
         error: str = str(literal_eval(e.error)['detail'])
@@ -68,7 +68,7 @@ def get_ethers_list(
             "error": error,
             "status_code": status_code,
         }
-        raise NetboxError(**error_msg)
+        raise NetBoxError(**error_msg)
 
     return ETHERS
 
