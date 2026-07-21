@@ -34,3 +34,12 @@ source .env && poetry run python src.main
 uv run --env-file .env -m src.main
 ```
 
+## Configuration
+The script can be modified by providing the following values through either the `.env` file or environment variables:
+
+| Name             | Type | Description |
+| ---------------- | ---- | ----------- |
+| ETHERS_FILENAME  | str  | (Optional) Defines the name of the ethers file. Defaults to `ethers`. |
+| NETBOX_API_TOKEN | str  | Your NetBox token for the `NETBOX_URL` instance. |
+| NETBOX_URL       | str  | The base URL to the instance of the NetBox instance you wish to connec to. |
+
